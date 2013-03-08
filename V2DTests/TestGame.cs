@@ -28,16 +28,7 @@ namespace V2DTest
         }
 		protected override void CreateScreens()
         {
-			stage.AddScreen(new DistanceJointDemo(new SymbolImport("DistanceJoint")));
-            stage.AddScreen(new RevoluteJointDemo(new SymbolImport("RevoluteJoint")));
-            stage.AddScreen(new GearJointDemo(new SymbolImport("GearJoint")));
-            stage.AddScreen(new V2DScreen(new SymbolImport("PrismaticJoint")));
-            stage.AddScreen(new PulleyJointDemo(new SymbolImport("PulleyJoint")));
-
             stage.AddScreen(new AnimationDemo(new SymbolImport("germs")));
-            stage.AddScreen(new SpinnerDemo(new SymbolImport("Scene3Data")));
-            stage.AddScreen(new V2DScreen(new SymbolImport("Scene1Data")));
-            stage.AddScreen(new V2DScreen(new SymbolImport("Scene2Data")));
         }
         protected override void Initialize()
         {
