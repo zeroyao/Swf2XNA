@@ -111,9 +111,6 @@
     <Reference Include="System.Xml.Linq">
       <Private>False</Private>
     </Reference>
-    <Reference Include="VexPipelineReader">
-      <HintPath>..\VexPipelineReader\bin\x86\Release\VexPipelineReader.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\DistanceJointAttribute.cs" />
@@ -231,6 +228,10 @@
     <ProjectReference Include="..\Box2D.XNA\Box2D.XNA.csproj">
       <Project>{22791486-E721-4511-AA4B-DA26CF5D0F2E}</Project>
       <Name>Box2D.XNA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VexPipelineReader\VexPipelineReader.csproj">
+      <Project>{D5D6310E-2D9D-4931-8D3B-4574F6625C6A}</Project>
+      <Name>VexPipelineReader</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

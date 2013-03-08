@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwfFormat", "SwfReader\SwfFormat.csproj", "{04BB0485-133C-4B56-94C0-D1D9B3D6EC95}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GdiRenderer", "GdiRenderer\GdiRenderer.csproj", "{9D6E1765-D1AA-4606-BE55-B54BF31BC57E}"
@@ -544,33 +544,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 9
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Vfx\\Vex.csproj
-		SccLocalPath1 = .
-		SccProjectFilePathRelativizedFromConnection1 = Vfx\\
-		SccProjectUniqueName2 = GdiRenderer\\GdiRenderer.csproj
-		SccLocalPath2 = .
-		SccProjectFilePathRelativizedFromConnection2 = GdiRenderer\\
-		SccProjectUniqueName3 = XamlRenderer\\XamlRenderer.csproj
-		SccLocalPath3 = .
-		SccProjectFilePathRelativizedFromConnection3 = XamlRenderer\\
-		SccProjectUniqueName4 = SwfToXaml\\SwfToXaml.csproj
-		SccLocalPath4 = .
-		SccProjectFilePathRelativizedFromConnection4 = SwfToXaml\\
-		SccProjectUniqueName5 = TheConverted\\TheConverted.vdproj
-		SccLocalPath5 = ..
-		SccProjectFilePathRelativizedFromConnection5 = XnaAnimator\\TheConverted\\
-		SccProjectUniqueName6 = XamlViewer\\XamlViewer.csproj
-		SccLocalPath6 = .
-		SccProjectFilePathRelativizedFromConnection6 = XamlViewer\\
-		SccProjectUniqueName7 = SwfDump\\SwfDump.csproj
-		SccLocalPath7 = .
-		SccProjectFilePathRelativizedFromConnection7 = SwfDump\\
-		SccProjectUniqueName8 = SwfReader\\SwfFormat.csproj
-		SccLocalPath8 = .
-		SccProjectFilePathRelativizedFromConnection8 = SwfReader\\
 	EndGlobalSection
 EndGlobal
