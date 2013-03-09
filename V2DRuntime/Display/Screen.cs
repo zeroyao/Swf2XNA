@@ -216,7 +216,7 @@ namespace DDW.Display
                 // ** note: unnamed elements may actually fall out of scope and get gc/disposed, so need a ref
                 // todo: use multiple content loaders per screen and unload where needed.
                 //V2DContent content = V2DGame.instance.Content.Load<V2DContent>(SymbolImport.assetName);
-                content = V2DGame.instance.Content.Load<V2DContent>(SymbolImport.assetName);
+                content = V2DRuntime.ResourceManager.Instance.LoadV2DContent(SymbolImport.assetName);
                 v2dWorld = content.v2dWorld;
                 textures = content.textures;
 				v2dWorld.RootInstance.Definition = v2dWorld.GetDefinitionByName(V2DGame.ROOT_NAME);

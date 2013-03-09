@@ -17,14 +17,23 @@ namespace V2DTest
 {
     public class TestGame : V2DGame
     {
-		public bool show3D = false;
+        private class ResourceManager : V2DRuntime.IResourceManager
+        {
+            public Microsoft.Xna.Framework.Content.ContentManager contentManager;
 
-        public override bool HasCursor { get { return true; } }
+            public V2DContent LoadV2DContent(string assetName)
+            {
+                return contentManager.Load<V2DContent>(assetName);
+            }
+        }
+
+		public bool show3D = false;
 
 
         public TestGame()
         {
             this.Content.RootDirectory = "V2DTestsContent";
+            V2DRuntime.ResourceManager.Instance = new ResourceManager { contentManager = this.Content };
         }
 		protected override void CreateScreens()
         {

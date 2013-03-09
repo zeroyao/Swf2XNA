@@ -136,12 +136,11 @@
     <Compile Include="Enums\LivingState.cs" />
     <Compile Include="Enums\PlayerJoinState.cs" />
     <Compile Include="Enums\TransitionKind.cs" />
-    <Compile Include="Input\Cursor.cs" />
     <Compile Include="Input\Direction.cs" />
     <Compile Include="Input\InputManager.cs" />
     <Compile Include="Input\Move.cs" />
     <Compile Include="Input\MoveList.cs" />
-    <Compile Include="Panels\VideoPanel.cs" />
+    <Compile Include="IResourceManager.cs" />
     <Compile Include="Tween\Easing.cs" />
     <Compile Include="Particles\FastRandom.cs" />
     <Compile Include="Particles\Particle.cs" />

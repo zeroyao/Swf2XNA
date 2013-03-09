@@ -36,22 +36,7 @@ namespace DDW.V2D
             graphics = new GraphicsDeviceManager(this);
             contentManager = Content;
             Content.RootDirectory = "Content";
-			stage = new V2DStage();
-
-            GetCursor();
-        }
-        
-        public virtual bool HasCursor { get { return false; } }
-
-        private Cursor cursor;
-        public Cursor GetCursor()
-        {
-            if (HasCursor && cursor == null)
-            {
-                cursor = new Cursor(this);
-                Components.Add(cursor);
-            }
-            return cursor;
+            stage = new V2DStage();
         }
 
         protected virtual void CreateScreens()
