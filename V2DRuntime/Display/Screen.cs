@@ -13,7 +13,6 @@ using System.IO;
 using V2DRuntime.Shaders;
 using System.Reflection;
 using V2DRuntime.V2D;
-using V2DRuntime.Debug;
 
 namespace DDW.Display
 {
@@ -414,10 +413,9 @@ namespace DDW.Display
 		public V2DShader lastShader;
 		public V2DShader defaultShader;
 		public V2DShader currentShader;
-        V2DShader shaderEffect;
 		protected override void DrawChild(DisplayObject d, SpriteBatch batch)
 		{
-            shaderEffect = shaderMap.ContainsKey(d.DepthGroup) ? shaderMap[d.DepthGroup] : defaultShader;
+            var shaderEffect = shaderMap.ContainsKey(d.DepthGroup) ? shaderMap[d.DepthGroup] : defaultShader;
 
             if (shaderEffect != lastShader)
             {

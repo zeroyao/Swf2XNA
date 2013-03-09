@@ -38,6 +38,7 @@ namespace V2DTest
 		protected override void CreateScreens()
         {
             stage.AddScreen(new AnimationDemo(new SymbolImport("germs")));
+            stage.AddScreen(new AnimationDemo(new SymbolImport("28835")));
         }
         protected override void Initialize()
         {

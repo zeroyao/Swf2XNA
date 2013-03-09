@@ -6,9 +6,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using DDW.V2D;
 using V2DRuntime.Shaders;
-#if !(WINDOWS_PHONE)
-using V2DRuntime.Audio;
-#endif
 
 namespace DDW.Display
 {
@@ -23,11 +20,6 @@ namespace DDW.Display
 		public bool pause = false;
         public V2DShader defaultEffect;
 
-#if !(WINDOWS_PHONE)
-        public AudioManager audio;
-        public AudioManager music;
-#endif
-
         public float MillisecondsPerFrame = 1000f / 12f;
 
         private Color clearColor;
@@ -36,20 +28,6 @@ namespace DDW.Display
         {
             stage = this;
         }
-
-#if !(WINDOWS_PHONE)
-
-        public void InitializeAudio(string audioEnginePath, string waveBankPath, string soundBankPath)
-        {
-            audio = new AudioManager(audioEnginePath, waveBankPath, soundBankPath);
-        }
-
-        public void InitializeMusic(string musicEnginePath, string waveBankPath, string soundBankPath)
-        {
-            music = new AudioManager(musicEnginePath, waveBankPath, soundBankPath);
-        }
-
-#endif
 
         public void AddScreen(Screen scr)
         {

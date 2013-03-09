@@ -12,14 +12,12 @@ namespace V2DTest
     [ScreenAttribute(backgroundColor=0x222222)]
     public class AnimationDemo : Screen
     {
-        public Sprite sneeze;
-
         public AnimationDemo(SymbolImport si) : base(si) { }
 
         public override void Initialize()
         {
             base.Initialize();
-            sneeze.PlayAll();
+            PlayAll();
         }
 
         public override void Update(GameTime gameTime)
