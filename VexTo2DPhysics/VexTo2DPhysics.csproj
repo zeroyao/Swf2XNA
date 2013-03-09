@@ -114,47 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DVex\ASDraw.txt" />
-    <Content Include="Library\Movieclip1.swf">
-    </Content>
-    <Content Include="Library\SmuckLib.swf">
-    </Content>
     <None Include="app.config" />
-    <None Include="Library\Demo.swf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Library\DistanceJoint.swf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Library\GearJoint.swf">
-    </None>
-    <None Include="Library\PrismaticJoint.swf">
-    </None>
-    <None Include="Library\PullyJoint.swf">
-    </None>
-    <None Include="Library\RevoluteJoint.swf">
-    </None>
-    <None Include="Library\Scene1Data.swf">
-    </None>
-    <None Include="Library\Scene2Data.swf">
-    </None>
-    <None Include="Library\Scene3Data.swf">
-    </None>
-    <None Include="Library\Scene4Data.swf">
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Library\Demo.fla" />
-    <None Include="Library\DistanceJoint.fla" />
-    <None Include="Library\GearJoint.fla" />
-    <None Include="Library\Movieclip1.fla" />
-    <None Include="Library\PrismaticJoint.fla" />
-    <None Include="Library\PullyJoint.fla" />
-    <None Include="Library\RevoluteJoint.fla" />
-    <None Include="Library\Scene1Data.fla" />
-    <None Include="Library\Scene2Data.fla" />
-    <None Include="Library\Scene3Data.fla" />
-    <None Include="Library\Scene4Data.fla" />
-    <None Include="Library\SmuckLib.fla" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
