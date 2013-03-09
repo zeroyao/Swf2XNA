@@ -8,11 +8,6 @@ using DDW.V2D;
 using DDW.V2D.Serialization;
 using DDW.Input;
 using Microsoft.Xna.Framework.Input;
-#if !(WINDOWS_PHONE)
-using Microsoft.Xna.Framework.Net;
-using V2DRuntime.Network;
-using Microsoft.Xna.Framework.Storage;
-#endif
 using Microsoft.Xna.Framework.Content;
 using System.IO;
 using V2DRuntime.Shaders;
@@ -38,10 +33,6 @@ namespace DDW.Display
         protected Move[] playerMoves;
         protected TimeSpan[] playerMoveTimes;
 		readonly TimeSpan MoveTimeOut = TimeSpan.FromSeconds(1.0);
-#if !(WINDOWS_PHONE)
-		protected PacketWriter packetWriter = new PacketWriter();
-		protected PacketReader packetReader = new PacketReader();
-#endif
 		protected int framesBetweenPackets = 4;
 		protected int framesSinceLastSend;
 		protected bool enablePrediction = true;
@@ -317,17 +308,6 @@ namespace DDW.Display
 			}
 		}
 
-#if !(WINDOWS_PHONE)
-        public virtual void SignInToLive()
-        {
-        }
-        public virtual void SignInToLive(int playerIndex)
-        {
-            // override and don't call base to add dialog
-            V2DGame.instance.ShowSignIn(playerIndex);
-        }
-#endif
-
         protected void ManageInput(GameTime gameTime)
         {
             if (inputManagers != null)
@@ -362,83 +342,11 @@ namespace DDW.Display
                             playerMoves[i] = newMove;
                             playerMoveTimes[i] = gameTime.TotalGameTime;
                             OnPlayerInput(i, playerMoves[i], playerMoveTimes[i]);
-#if !(WINDOWS_PHONE)
-                            BroadcastMove(i, playerMoves[i], playerMoveTimes[i]);
-#endif
                         }
                     }
                 }
             }
 		}
-
-#if !(WINDOWS_PHONE)
-
-#region network
-		public virtual void BroadcastMove(int playerIndex, Move move, TimeSpan time)
-        {
-		}
-		public virtual void WriteNetworkPacket(PacketWriter packetWriter, GameTime gameTime)
-		{
-		}
-		public virtual void ReadNetworkPacket(PacketReader packetReader,GameTime gameTime, TimeSpan latency)
-		{
-		}
-		void UpdateNetworkSession(GameTime gameTime)
-		{
-			bool sendPacketThisFrame = false;
-			framesSinceLastSend++;
-			if (framesSinceLastSend >= framesBetweenPackets)
-			{
-				sendPacketThisFrame = true;
-				framesSinceLastSend = 0;
-			}
-
-			if (NetworkManager.Session.SessionState == NetworkSessionState.Playing)
-			{
-				foreach (LocalNetworkGamer gamer in NetworkManager.Session.LocalGamers)
-				{
-					UpdateLocalGamer(gamer, gameTime, sendPacketThisFrame);
-				}
-			}
-
-			try
-			{
-				NetworkManager.Session.Update();
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine(e.Message);
-				NetworkManager.Instance.LeaveSession();
-			}
-
-			// Make sure the session has not ended.
-			if (NetworkManager.Session != null && NetworkManager.Session.SessionState == NetworkSessionState.Playing)
-			{
-				// Read any packets telling us the state of remotely controlled tanks.
-				foreach (LocalNetworkGamer gamer in NetworkManager.Session.LocalGamers)
-				{
-					ReadIncomingPackets(gamer, gameTime);
-				}
-
-				// Update the latency and packet loss simulation options.
-				//UpdateOptions();
-			}
-		}
-		protected virtual void ReadIncomingPackets(LocalNetworkGamer gamer, GameTime gameTime)
-		{
-			while (gamer.IsDataAvailable)
-			{
-				NetworkGamer sender;
-				gamer.ReceiveData(packetReader, out sender);
-			}
-		}
-		protected virtual void UpdateLocalGamer(LocalNetworkGamer gamer, GameTime gameTime, bool sendPacketThisFrame)
-		{
-		}
-
-#endregion
-
-#endif
 
 		public virtual void SetBounds(float x, float y, float w, float h)
 		{
@@ -448,15 +356,7 @@ namespace DDW.Display
 			ManageInput(gameTime);
 
             base.Update(gameTime);
-            if (isActive)
-            {
-#if !(WINDOWS_PHONE)
-                if (NetworkManager.Session != null && NetworkManager.Session.SessionType != NetworkSessionType.Local)
-				{
-					UpdateNetworkSession(gameTime);
-				}
-#endif
-			}
+
 			OnUpdateComplete(gameTime);		
 		}
 

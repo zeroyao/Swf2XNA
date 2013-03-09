@@ -141,8 +141,6 @@
     <Compile Include="Input\InputManager.cs" />
     <Compile Include="Input\Move.cs" />
     <Compile Include="Input\MoveList.cs" />
-    <Compile Include="Network\NetworkManager.cs" />
-    <Compile Include="Panels\HighScorePanel.cs" />
     <Compile Include="Panels\VideoPanel.cs" />
     <Compile Include="Tween\Easing.cs" />
     <Compile Include="Particles\FastRandom.cs" />

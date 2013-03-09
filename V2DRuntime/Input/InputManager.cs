@@ -14,12 +14,6 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using V2DRuntime.Enums;
-
-#if !(WINDOWS_PHONE)
-using Microsoft.Xna.Framework.Net;
-using V2DRuntime.Network;
-#endif
-
 #endregion
 
 namespace DDW.Input // these are ms supplied classes (and they are obtuse), namespace changed to fit
@@ -27,9 +21,6 @@ namespace DDW.Input // these are ms supplied classes (and they are obtuse), name
     public class InputManager
     {
 		public PlayerIndex PlayerIndex;
-#if !(WINDOWS_PHONE)
-		public NetworkGamer NetworkGamer;
-#endif
 
 		public GamePadState GamePadState;
 		public KeyboardState currentKeyboardState;
@@ -288,20 +279,6 @@ namespace DDW.Input // these are ms supplied classes (and they are obtuse), name
         public static void AddInputManager(int playerIndex)
         {
             inputManagers[playerIndex] = new InputManager((PlayerIndex)playerIndex, 2);//, moveList.LongestMoveLength);
-
-#if !(WINDOWS_PHONE)
-            if (NetworkManager.Session != null)
-            {
-                foreach (LocalNetworkGamer lng in NetworkManager.Session.LocalGamers)
-                {
-                    if (lng.SignedInGamer != null && lng.SignedInGamer.PlayerIndex == (PlayerIndex)playerIndex)
-                    {
-                        inputManagers[playerIndex].NetworkGamer = lng;
-                        break;
-                    }
-                }
-            }
-#endif
         }
     }
 }
