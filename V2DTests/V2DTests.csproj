@@ -116,13 +116,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Demo\DistanceJointDemo.cs" />
-    <Compile Include="Demo\GearJointDemo.cs" />
     <Compile Include="Demo\AnimationDemo.cs" />
-    <Compile Include="Demo\PulleyJointDemo.cs" />
-    <Compile Include="Demo\RevoluteJointDemo.cs" />
-    <Compile Include="Demo\Scene2Data.cs" />
-    <Compile Include="Demo\SpinnerDemo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestGame.cs" />
@@ -182,10 +176,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Box2D.XNA\Box2D.XNA.csproj">
-      <Project>{22791486-E721-4511-AA4B-DA26CF5D0F2E}</Project>
-      <Name>Box2D.XNA</Name>
-    </ProjectReference>
     <ProjectReference Include="..\V2DRuntime\V2DRuntime.csproj">
       <Project>{269A1048-DA2C-475A-9C10-564A7D8A071D}</Project>
       <Name>V2DRuntime</Name>

@@ -16,34 +16,7 @@ namespace DDW.V2D
 		{
 			base.AddChild(o);
 		}
-        internal override void ObjectAddedToStage(DisplayObject o)
-        {
-            if (o is V2DSprite)
-            {
-                V2DSprite sp = (V2DSprite)o;
-                sp.AddBodyInstanceToRuntime();
-            }
 
-            base.ObjectAddedToStage(o);
-        }
-        internal override void ObjectRemovedFromStage(DisplayObject o)
-        {
-            base.ObjectRemovedFromStage(o);
-
-            if (o is V2DScreen)
-            {
-                V2DScreen scr = (V2DScreen)o;
-                scr.Deactivate();
-            }
-			//else if (o is V2DSprite)
-			//{
-			//    if (o.Parent != null)
-			//    {
-			//        V2DSprite sp = (V2DSprite)o;
-			//        sp.RemoveBodyInstanceFromRuntime();
-			//    }
-			//}
-		}
 		public override void SetBounds(float x, float y, float w, float h)
 		{
             // curScreen may be null if there are only persistant screens added (huds etc)

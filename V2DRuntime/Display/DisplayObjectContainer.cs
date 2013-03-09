@@ -587,18 +587,6 @@ namespace DDW.Display
 						SpriteAttribute a = (SpriteAttribute)attr;
 						result.DepthGroup = a.depthGroup;
 					}
-
-					if (attr is V2DSpriteAttribute)
-					{
-						if (result is V2DSprite)
-						{
-							V2DSpriteAttribute a = (V2DSpriteAttribute)attr;
-							V2DSprite sp = (V2DSprite)result;
-							sp.attributeProperties = a;
-							sp.SetGroupIndex(a.groupIndex);
-							sp.IsStatic = a.isStatic;
-						}
-					}
 				}
 
 				// need to do this separately to ensure the depth group is set in previous step

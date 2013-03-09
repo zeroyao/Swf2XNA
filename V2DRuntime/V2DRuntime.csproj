@@ -113,16 +113,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\DistanceJointAttribute.cs" />
-    <Compile Include="Attributes\GearJointAttribute.cs" />
-    <Compile Include="Attributes\JointAttribute.cs" />
-    <Compile Include="Attributes\LineJointAttribute.cs" />
-    <Compile Include="Attributes\PrismaticJointAttribute.cs" />
-    <Compile Include="Attributes\PulleyJointAttribute.cs" />
-    <Compile Include="Attributes\RevoluteJointAttribute.cs" />
     <Compile Include="Attributes\ScreenAttribute.cs" />
-    <Compile Include="Attributes\V2DScreenAttribute.cs" />
-    <Compile Include="Attributes\V2DSpriteAttribute.cs" />
     <Compile Include="Audio\AudioManager.cs" />
     <Compile Include="Components\Button.cs" />
     <Compile Include="Components\ButtonTabGroup.cs" />
@@ -145,7 +136,6 @@
     <Compile Include="Enums\LivingState.cs" />
     <Compile Include="Enums\PlayerJoinState.cs" />
     <Compile Include="Enums\TransitionKind.cs" />
-    <Compile Include="Game\Player.cs" />
     <Compile Include="Input\Cursor.cs" />
     <Compile Include="Input\Direction.cs" />
     <Compile Include="Input\InputManager.cs" />
@@ -168,13 +158,15 @@
     <Compile Include="Attributes\SpriteAttribute.cs" />
     <Compile Include="Tween\TweenState.cs" />
     <Compile Include="Tween\TweenWorker.cs" />
-    <Compile Include="V2D\IJointable.cs" />
-    <Compile Include="V2D\V2DExtensions.cs" />
-    <Compile Include="V2D\V2DGame.cs" />
-    <Compile Include="V2D\V2DScreen.cs" />
-    <Compile Include="V2D\V2DSprite.cs" />
-    <Compile Include="V2D\V2DStage.cs" />
-    <Compile Include="V2D\V2DTransform.cs" />
+    <Compile Include="V2D\V2DGame.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="V2D\V2DStage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="V2D\V2DTransform.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <NestedContentProject Include="Content\Content.contentproj">
@@ -225,15 +217,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Box2D.XNA\Box2D.XNA.csproj">
-      <Project>{22791486-E721-4511-AA4B-DA26CF5D0F2E}</Project>
-      <Name>Box2D.XNA</Name>
-    </ProjectReference>
     <ProjectReference Include="..\VexPipelineReader\VexPipelineReader.csproj">
       <Project>{D5D6310E-2D9D-4931-8D3B-4574F6625C6A}</Project>
       <Name>VexPipelineReader</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

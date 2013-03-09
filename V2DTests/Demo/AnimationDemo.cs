@@ -4,7 +4,6 @@ using DDW.Display;
 using DDW.V2D;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Box2D.XNA;
 using V2DRuntime.Attributes;
 using V2DRuntime.V2D;
 

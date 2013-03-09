@@ -13,14 +13,12 @@ using Microsoft.Xna.Framework.Net;
 using V2DRuntime.Network;
 using Microsoft.Xna.Framework.Storage;
 #endif
-using V2DRuntime.Game;
 using Microsoft.Xna.Framework.Content;
 using System.IO;
 using V2DRuntime.Shaders;
 using System.Reflection;
 using V2DRuntime.V2D;
 using V2DRuntime.Debug;
-using Box2D.XNA;
 
 namespace DDW.Display
 {
@@ -422,16 +420,6 @@ namespace DDW.Display
 					ReadIncomingPackets(gamer, gameTime);
 				}
 
-				// Apply prediction and smoothing to the remotely controlled tanks.
-				foreach (NetworkGamer gamer in NetworkManager.Session.RemoteGamers)
-				{
-					Player p = gamer.Tag as Player;
-					if (p != null)
-					{
-						p.UpdateRemotePlayer(framesBetweenPackets, enablePrediction);
-					}
-				}
-
 				// Update the latency and packet loss simulation options.
 				//UpdateOptions();
 			}
@@ -442,31 +430,10 @@ namespace DDW.Display
 			{
 				NetworkGamer sender;
 				gamer.ReceiveData(packetReader, out sender);
-				if (!sender.IsLocal && sender.Tag != null)
-				{
-					Player p = sender.Tag as Player;
-					TimeSpan latency = NetworkManager.Session.SimulatedLatency +
-									   TimeSpan.FromTicks(sender.RoundtripTime.Ticks / 2);
-
-					// Read the state of this tank from the network packet.
-					p.ReadNetworkPacket(packetReader, gameTime, latency);
-				}
 			}
 		}
 		protected virtual void UpdateLocalGamer(LocalNetworkGamer gamer, GameTime gameTime, bool sendPacketThisFrame)
 		{
-			Player p = gamer.Tag as Player;
-			if (p != null)
-			{
-				//p.UpdateLocalPlayer(gameTime);
-
-				// Periodically send our state to everyone in the session.
-				if (sendPacketThisFrame)
-				{
-					p.WriteNetworkPacket(packetWriter, gameTime);
-					gamer.SendData(packetWriter, SendDataOptions.InOrder);
-				}
-			}
 		}
 
 #endregion

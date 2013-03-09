@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using V2DRuntime.Game;
 using V2DRuntime.Enums;
 
 #if !(WINDOWS_PHONE)
@@ -31,7 +30,6 @@ namespace DDW.Input // these are ms supplied classes (and they are obtuse), name
 #if !(WINDOWS_PHONE)
 		public NetworkGamer NetworkGamer;
 #endif
-		public Player Player;
 
 		public GamePadState GamePadState;
 		public KeyboardState currentKeyboardState;
